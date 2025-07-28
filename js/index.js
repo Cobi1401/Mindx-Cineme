@@ -7,6 +7,9 @@ let maintTitle = document.getElementById("main-title")
 let des = document.getElementById("des")
 let backGroundImg = document.getElementById("back-ground-img")
 let poster = document.getElementById("font-img")
+let trendingMovies = document.querySelectorAll(".movie-item")
+let movieImg;
+let title;
 
 window.addEventListener("scroll", function() 
 {
@@ -38,5 +41,14 @@ fetch('https://api.themoviedb.org/3/movie/popular',
      backGroundImg.src= baseUrl + data.results[0].backdrop_path
      poster.src = baseUrl + data.results[0].poster_path
      console.log(data.results[0].backdrop_path)
+
+     trendingMovies.forEach((movie, index)=>
+     {
+          movieImg= movie.getElementsByTagName("img")
+          movieImg[0].src= baseUrl + data.results[index].poster_path
+          title = movie.getElementsByTagName("p")
+          title[0].innerText = data.results[index].original_title
+     });
+
 })
 .catch(error=>console.log("Lỗi rồi"))
