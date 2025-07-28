@@ -1,9 +1,8 @@
 body
 {
-    width: 100% !important ;
-    height: 100vh !important;
-    margin:  0 0 0 0 !important;
-    position: absolute !important;
+    width: 100% ;
+    height: 100vh ;
+    background-color: rgb(34, 34, 34) !important;
 }
 
 
@@ -49,13 +48,15 @@ body
     right: 30px;
     font-size: xx-large;
     color: white;
+    z-index: 5;
 }
+
 
 #main1
 {
-   width: 100%;
-   height: 100%;
-   margin:  0 0 0 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -63,9 +64,13 @@ body
 {
     width: 100%;
     height:100%;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
 } 
 
 
@@ -75,34 +80,28 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 30px;
+    margin-left: 40px;
+    max-width: 467px;
 }
-
-#main4
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center ;
-}
-
 
 #font-img
 {
     border-radius: 8px;
+    margin-right:160px ;
+    width: 300px ;
 }
 
 #back-ground-img
 {   
-    margin:  0 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.7;
+    object-fit: cover;
+    margin:  0 0 0 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
     border-radius: 0px;
+    opacity: 0.5;
 }
 
 
@@ -112,7 +111,7 @@ body
 {
     background-color: rgb(34, 34, 34);
     width: 100%;
-    height: 700px;
+    height: fit-content;
 }
 
 .movie-line
@@ -131,6 +130,17 @@ body
     border-radius: 8px;
 }
 
+.movie-item:hover
+{
+    transition: 0.3s;
+    opacity: 0.9;
+}
+
+.movie-item:hover .title
+{
+    color :rgb(177,41,34);
+}
+
 .title
 {
     font-size: 16px !important;
@@ -140,9 +150,38 @@ body
 
 
 
+#footer
+{
+    background-color: rgb(42, 42, 42);
+    width: 100%;
+    height: 48px;
+    margin-top: 56px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#footer p
+{
+    color: rgb(229, 231, 235);
+    font-size: 16px !important;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+}
+
+
+
+
+
+a
+{
+    text-decoration: none !important;
+}
+
 i
 {
     font-size: larger;
+    color: rgb(229, 231, 235);
 }
 
 
@@ -180,10 +219,11 @@ h2
 p
 {
     color: white;
-    margin:  0 0 0 0;
+    margin:  0 0 0 0 !important;
     display: inline;
     font-size: 20px !important;
     font-family: Arial, Helvetica, sans-serif ;
+    height: fit-content;
 }
 
 
