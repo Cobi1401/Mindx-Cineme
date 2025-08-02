@@ -14,6 +14,7 @@ let title;
 
 
 
+
 window.addEventListener("scroll", function() 
 {
    if(window.scrollY > 0)
@@ -58,3 +59,34 @@ fetch('https://api.themoviedb.org/3/movie/popular',
 
 })
 .catch(error=>console.log("Lỗi rồi"))
+
+
+
+const swiper = new Swiper('.swiper', {
+  
+  spaceBetween : 40,
+  slidesPerView: 'auto',
+  direction: 'horizontal',
+  loop: true,
+  autoplay:
+  {
+    delay:2500,
+    disableOnInteration:true,
+  },
+  speed : 1000,
+
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+
+movies.forEach((movie)=>
+{
+     movie.addEventListener("click",()=>
+     {
+          window.location.href = "info.html"
+     });
+});
