@@ -11,6 +11,9 @@ let trendingMovies = document.querySelectorAll(".movie-item")
 let movieImg;
 let title;
 
+
+
+
 window.addEventListener("scroll", function() 
 {
    if(window.scrollY > 0)
@@ -22,6 +25,9 @@ window.addEventListener("scroll", function()
         navbar.style.backgroundColor = "transparent"; 
    }
 });
+
+
+
 
 fetch('https://api.themoviedb.org/3/movie/popular',
      {

@@ -3,12 +3,12 @@ body
     width: 100% ;
     height: 100vh ;
     background-color: rgb(34, 34, 34) !important;
+    overflow-x: hidden;
 }
 
 
 #navbar
 {
-    width: 100%;
     height: 60px;
     position: fixed;
     top:0px;
@@ -81,13 +81,24 @@ body
     justify-content: center;
     align-items: flex-start;
     margin-left: 40px;
-    max-width: 50%;
 }
+
+#des
+{
+    max-width: 90%;
+    max-height: 7.2em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+}
+
+
 
 #font-img
 {
     border-radius: 8px;
-    margin-right:160px ;
     width: 300px ;
 }
 
@@ -110,7 +121,6 @@ body
 #movie-section
 {
     background-color: rgb(34, 34, 34);
-    width: 100%;
     height: fit-content;
 }
 
@@ -123,6 +133,7 @@ body
     flex-direction: row ;
     justify-content: space-between ;
     margin-left:24.3px ;
+    gap: 20px;
 }
 
 .movie-item
@@ -160,7 +171,7 @@ body
 
 .carousel-control-prev
 { 
-     margin-top: 150px;
+    margin-top: 150px;
     justify-content: flex-start !important;
     width: fit-content !important;
     height: fit-content !important;
@@ -171,6 +182,26 @@ body
     justify-content: flex-end !important;
     width: fit-content !important;
     height: fit-content !important;
+}
+
+
+.swiper {
+   height: 300px;
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+.swiper-slide img {
+  height: 300px;
+  width: auto;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next
+{
+    color: red !important;
 }
 
 
@@ -218,11 +249,10 @@ div
 }
 
 
-
 img
 {
     border-top-left-radius: 8px;
-    border-top-right-radius: 8px
+    border-top-right-radius: 8px;
 }
 
 h1

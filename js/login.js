@@ -1,3 +1,4 @@
+let succes=false;
 let userList = JSON.parse(localStorage.getItem("userList"))
 console.log(userList)
 
@@ -19,11 +20,14 @@ btn.addEventListener("click",(e)=>
             {
                 window.location.href = "index.html"
                 console.log("succes")
+                succes=true;
                 break;
             }
         }
     }
-    
-
+    if(!succes)
+    {
+        alert("Check your email and password")
+    }
 })
 

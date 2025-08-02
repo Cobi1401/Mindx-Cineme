@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     
 
 </head>
@@ -18,32 +19,36 @@
 
 
 
-<div class="container-fluid navbar"  id="navbar">
-    <div id="logo-container">
-        <a href="index.html">
-            <p class="logo">Mind<p class="logo" style="color: red;">X</p></p>
-            <p class="logo">Cinema</p>
-        </a>
-    </div>
+    <div class="container-fluid navbar"  id="navbar">
 
-    <div id="tool-container">
-        <a  href="search.html">
-        <i class="fa-solid fa-magnifying-glass tool" style="color: white;" ></i>
-        </a>
-        <a href="register.html">
-            <i class="fa-solid fa-right-to-bracket tool" style="color: white;"></i>
-        </a>
+        <div id="logo-container">
+            <a href="index.html">
+                <p class="logo">Mind<p class="logo" style="color: red;">X</p></p>
+                <p class="logo">Cinema</p>
+            </a>
+        </div>
+
+        <div id="tool-container">
+            <a  href="search.html">
+            <i class="fa-solid fa-magnifying-glass tool" style="color: white;" ></i>
+            </a>
+            <a href="register.html">
+                <i class="fa-solid fa-right-to-bracket tool" style="color: white;"></i>
+            </a> 
+        </div>
         
-       
     </div>
-</div>
 
-<div id="main1">
+
+
+<div id="main1" class="">
     <img  id="back-ground-img" src="" alt="back_drop_img">
-    <div id="main2" >
-        <div id="main3">
+    <div class="row"></div>
+    <div id="main2" class="col-12 col-md-8">
+        <div id="main3" class="container " >
                 <h1 id="main-title" style="color: white; ">TITLE</h1>
-                <p id="des">Desciption</p>
+                <div id="text-overlay"><p id="des" class="">Desciption</p></div>
+                
                 <div>
                     <button type="button" scr class="btn btn-dark">
                         <i class="fa-solid fa-circle-play"></i>
@@ -55,7 +60,12 @@
                     </button>
                 </div>
         </div>
-        <img id="font-img" src="" alt="poster-film">
+
+        <div  class="col-md-4 d-none d-md-block">
+            <img  id="font-img" src="" alt="poster-film">
+        </div>
+        
+    </div>
     </div>
 </div>
 
@@ -113,7 +123,7 @@
         </div>
     </div>
 
-    <h2>Test Area</h2>
+    <h2>Test Area1</h2>
     <div id="demo" class="carousel slide " data-bs-ride="carousel" data-bs-interval="5000">
 
         <div class="carousel-inner ">
@@ -178,6 +188,40 @@
             <span class="carousel-control-next-icon"></span>
     </button>
 
+    <h2>Test Area2</h2>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=1"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=2"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=3"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=4"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=5"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=6"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://picsum.photos/200/300?random=7"/>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+
 </div>
 
 
@@ -193,8 +237,35 @@
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tunglinh1401@gmail.com"> <i class="fa-solid fa-envelope"></i></a> 
     </p>
 </div>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+  
+  spaceBetween : 60,
+  slidesPerView: 'auto',
+  
+  direction: 'horizontal',
+  loop: true,
+  autoplay:
+  {
+    delay:1500,
+    disableOnInteration:true,
+  },
+  speed : 1000,
+
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+</script>
 
 
 

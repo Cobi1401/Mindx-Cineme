@@ -23,8 +23,9 @@ function checkNum (str)
 
 
 
-submit.addEventListener("click", ()=>
+submit.addEventListener("click", (e)=>
 {
+    e.preventDefault();
     if(password.value.length < 6 || password.value.length > 20)
     {
         check=false;
