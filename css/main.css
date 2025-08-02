@@ -138,10 +138,10 @@ body
 
 .movie-item
 {
-    width: 200px;
-    height: 352px;
-    background-color: rgb(32,28,28);
-    border-radius: 8px;
+    width: 200px !important;
+    height: 352px !important;
+    background-color: rgb(32,28,28) !important;
+    border-radius: 8px !important;
 }
 
 .movie-item img
@@ -185,13 +185,13 @@ body
 }
 
 
-.swiper {
-   height: 300px;
-}
 
 .swiper-slide {
   width: auto !important;
+  height: fit-content;
+  margin-left:20px ;
 }
+
 .swiper-slide img {
   height: 300px;
   width: auto;
