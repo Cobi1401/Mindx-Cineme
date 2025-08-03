@@ -51,7 +51,7 @@ fetch('https://api.themoviedb.org/3/movie/popular',
      })
 .then(respone=> respone.json())
 .then(data=>{
-     console.log(data.results[0])
+     //console.log(data.results[0])
      maintTitle.innerText=data.results[0].original_title
      des.innerText = data.results[0].overview
      backGroundImg.src= baseUrl + data.results[0].backdrop_path

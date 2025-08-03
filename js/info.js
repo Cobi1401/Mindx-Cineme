@@ -8,7 +8,7 @@ let backGroundImg = document.getElementById("back-ground-img")
 let poster = document.getElementById("font-img")
 let des = document.getElementById("des")
 let date = document.getElementById("date")
-console.log(movieId)
+//console.log(movieId)
 
 fetch(`https://api.themoviedb.org/3/movie/${movieId}`,
 {
@@ -22,7 +22,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}`,
 .then(respone=>respone.json())
 .then(data=>
 {
-    console.log(data)
+    //console.log(data)
 
 
     //Load information
