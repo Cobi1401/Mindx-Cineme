@@ -1,13 +1,22 @@
 console.log("JS is running")
 const baseUrl = "https://image.tmdb.org/t/p/original/"
+
+
+
+
 let movies= document.querySelectorAll(".movie-item")
-let titles = document.querySelectorAll(".title")
 let navbar = document.getElementById("navbar")
+let trendingMovies = document.querySelectorAll(".movie-item")
+
+//hero-section info
 let maintTitle = document.getElementById("main-title")
-let des = document.getElementById("des")
 let backGroundImg = document.getElementById("back-ground-img")
 let poster = document.getElementById("font-img")
-let trendingMovies = document.querySelectorAll(".movie-item")
+let des = document.getElementById("des")
+
+
+//film info
+
 let movieImg;
 let title;
 
@@ -47,7 +56,7 @@ fetch('https://api.themoviedb.org/3/movie/popular',
      des.innerText = data.results[0].overview
      backGroundImg.src= baseUrl + data.results[0].backdrop_path
      poster.src = baseUrl + data.results[0].poster_path
-     console.log(data.results[0].backdrop_path)
+     //console.log(data.results[0].backdrop_path)
 
      trendingMovies.forEach((movie, index)=>
      {
@@ -55,6 +64,7 @@ fetch('https://api.themoviedb.org/3/movie/popular',
           movieImg[0].src= baseUrl + data.results[index].poster_path
           title = movie.getElementsByTagName("p")
           title[0].innerText = data.results[index].original_title
+          title[0].moiveId = data.results[index].id
      });
 
 })
@@ -87,6 +97,10 @@ movies.forEach((movie)=>
 {
      movie.addEventListener("click",()=>
      {
+          let chooseMovie=movie.getElementsByTagName("p")
+          chooseMovie=chooseMovie[0].moiveId
+          console.log(chooseMovie)
+          localStorage.setItem("choose",chooseMovie)
           window.location.href = "info.html"
      });
 });
