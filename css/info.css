@@ -106,11 +106,17 @@ body
 }
 
 
+
 #cast-container
 {
-    margin-left:40px ;
+    margin-left:40px;
 }
 
+#row
+{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
 
 .actor
 {
@@ -131,7 +137,15 @@ body
     font-size: 15px;
 }
 
+.cast-name
+{
+    color: rgb(229, 231, 235);
+}
 
+.cast-role
+{
+    color:rgb(255, 65, 18);
+}
 
 
 #chatbox
@@ -188,6 +202,20 @@ i
     color: rgb(229, 231, 235);
 }
 
+span
+{
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    border-style: solid;
+    border-radius: 9999px;
+    border-width: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px ;
+    padding-left: 12px;
+    padding-right:12px;
+    margin-right: 4px;
+}
 
 img
 {
