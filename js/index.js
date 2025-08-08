@@ -9,7 +9,7 @@ let navbar = document.getElementById("navbar")
 let trendingMovies = document.querySelectorAll(".movie-item")
 
 //hero-section info
-let maintTitle = document.getElementById("main-title")
+let mainTitle = document.getElementById("main-title")
 let backGroundImg = document.getElementById("back-ground-img")
 let poster = document.getElementById("font-img")
 let des = document.getElementById("des")
@@ -49,10 +49,10 @@ fetch('https://api.themoviedb.org/3/movie/popular',
           }
 
      })
-.then(respone=> respone.json())
+.then(response => response.json())
 .then(data=>{
      //console.log(data.results[0])
-     maintTitle.innerText=data.results[0].original_title
+     mainTitle.innerText=data.results[0].original_title
      des.innerText = data.results[0].overview
      backGroundImg.src= baseUrl + data.results[0].backdrop_path
      poster.src = baseUrl + data.results[0].poster_path
@@ -64,7 +64,7 @@ fetch('https://api.themoviedb.org/3/movie/popular',
           movieImg[0].src= baseUrl + data.results[index].poster_path
           title = movie.getElementsByTagName("p")
           title[0].innerText = data.results[index].original_title
-          title[0].moiveId = data.results[index].id
+          title[0].movieId = data.results[index].id
      });
 
 })
@@ -81,7 +81,7 @@ const swiper = new Swiper('.swiper', {
   autoplay:
   {
     delay:2500,
-    disableOnInteration:true,
+    disableOnInteraction:true,
   },
   speed : 1000,
 
@@ -98,7 +98,7 @@ movies.forEach((movie)=>
      movie.addEventListener("click",()=>
      {
           let chooseMovie=movie.getElementsByTagName("p")
-          chooseMovie=chooseMovie[0].moiveId
+          chooseMovie=chooseMovie[0].movieId
           console.log(chooseMovie)
           localStorage.setItem("choose",chooseMovie)
           window.location.href = "info.html"

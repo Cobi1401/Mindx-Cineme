@@ -20,7 +20,33 @@ let casts = document.querySelectorAll(".actor")
 console.log(casts)
 let castImg 
 let castName
-let castRole 
+let castRole
+
+//similar movies
+let movies; document.querySelectorAll(".movie-item")
+let slide;
+let similarMovies = document.getElementById("similar-movie")
+let movieItem;
+let movieTitle;
+let movieImg;
+
+
+window.addEventListener("scroll", function() 
+{
+   if(window.scrollY > 0)
+   {
+        navbar.style.backgroundColor = "rgb(34, 34,34)";
+   }
+   else
+   {
+        navbar.style.backgroundColor = "transparent"; 
+   }
+});
+
+
+
+
+
 
 fetch(`https://api.themoviedb.org/3/movie/${movieId}`,
 {
@@ -31,7 +57,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}`,
        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzFlZmM5NzE5MjQ2ZjQ3ODg2MWI4YzNmMzc2NjU3OSIsIm5iZiI6MTczOTEwMDk5NS45NjMsInN1YiI6IjY3YTg5MzQzMWMwZjNhYmY4N2UwOGY5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wPtqB-mNOCqkolqbDgdoIW1GmD0XqhwoC1CG2oargus"
     }
 })
-.then(respone=>respone.json())
+.then(response=>response.json())
 .then(data=>
 {
     console.log(data)
@@ -53,7 +79,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}`,
     }
     
    
-})
+});
 
 
 
@@ -64,13 +90,14 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits`,
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzFlZmM5NzE5MjQ2ZjQ3ODg2MWI4YzNmMzc2NjU3OSIsIm5iZiI6MTczOTEwMDk5NS45NjMsInN1YiI6IjY3YTg5MzQzMWMwZjNhYmY4N2UwOGY5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wPtqB-mNOCqkolqbDgdoIW1GmD0XqhwoC1CG2oargus"
     }
 })
-.then(respone=>respone.json())
+.then(response=>response.json())
 .then(data=>
 {
     console.log(data)
     //Load cast information
     for(let i=0 ; i<=9 ; ++i)
     {
+
         let actor = document.createElement("div")
         actor.className = "actor"
         castImg = document.createElement("img")
@@ -87,4 +114,87 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits`,
         actor.appendChild(castRole)
         row.appendChild(actor)
     }
+});
+
+
+const swiper = new Swiper(".swiper",{
+  spaceBetween : 20,
+  slidesPerView: 'auto',
+  direction: 'horizontal',
+  loop: true,
+  autoplay:
+  {
+    delay:2500,
+    disableOnInteraction:false,
+  },
+  speed : 1000,
+
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+
+});
+
+
+fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar`,{
+    headers:
+    {
+        "Authorization": " Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzFlZmM5NzE5MjQ2ZjQ3ODg2MWI4YzNmMzc2NjU3OSIsIm5iZiI6MTczOTEwMDk5NS45NjMsInN1YiI6IjY3YTg5MzQzMWMwZjNhYmY4N2UwOGY5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wPtqB-mNOCqkolqbDgdoIW1GmD0XqhwoC1CG2oargus"
+    }
 })
+.then (response=>response.json())
+.then(data => {
+    console.log(data)
+    
+    for(let i=0 ; i<data.results.length ; ++i)
+    {
+       slide = document.createElement("div")
+       slide.className = "swiper-slide"
+
+
+       movieItem =  document.createElement("div")
+       movieItem.className = "movie-item"
+
+       movieTitle = document.createElement("p")
+       movieTitle.className = "title"
+       movieTitle.innerText = data.results[i].title
+       movieTitle.movieId = data.results[i].id
+       //console.log(movieTitle.movieId)
+       movieImg = document.createElement("img")
+       movieImg.src = baseUrl + data.results[i].poster_path
+
+       movieItem.appendChild(movieImg)
+       movieItem.appendChild(movieTitle)
+
+       slide.appendChild(movieItem)
+
+       similarMovies.appendChild(slide)
+
+    }
+})
+.then(
+()=>{
+        movies = document.querySelectorAll(".movie-item");
+        //console.log(movies);
+        movies.forEach((movie)=>
+        {
+            movie.addEventListener("click",()=>
+            {
+                let chooseMovie=movie.getElementsByTagName("p")
+                chooseMovie=chooseMovie[0].movieId
+                //console.log(chooseMovie)
+                localStorage.setItem("choose",chooseMovie)
+                window.location.href = "info.html"
+            });
+        });
+    }  
+);
+
+
+
+
+
+
+
