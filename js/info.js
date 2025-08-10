@@ -1,13 +1,14 @@
 const baseUrl = "https://image.tmdb.org/t/p/original/"
+const param = new  URLSearchParams(window.location.search)
 
 //page name
 let pageName = document.getElementById("pagename")
 
 
 //movie information
-let movieId=localStorage.getItem("choose")
+let movieId=param.get("id")
 let title = document.getElementById("title")
-let backGroundImg = document.getElementById("back-ground-img")
+let backGroundImg = document.getElementById("background-img")
 let poster = document.getElementById("font-img")
 let des = document.getElementById("des")
 let date = document.getElementById("date")

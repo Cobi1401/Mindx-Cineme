@@ -100,7 +100,6 @@ movies.forEach((movie)=>
           let chooseMovie=movie.getElementsByTagName("p")
           chooseMovie=chooseMovie[0].movieId
           console.log(chooseMovie)
-          localStorage.setItem("choose",chooseMovie)
-          window.location.href = "info.html"
+          window.location.href =`/info.html?id=${chooseMovie}`
      });
 });
