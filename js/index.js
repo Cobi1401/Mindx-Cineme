@@ -100,6 +100,6 @@ movies.forEach((movie)=>
           let chooseMovie=movie.getElementsByTagName("p")
           chooseMovie=chooseMovie[0].movieId
           console.log(chooseMovie)
-          window.location.href =`cobi1401.github.io/Mindx-Cineme/info.html?id=${chooseMovie}`
+          window.location.href =`info.html?id=${chooseMovie}`
      });
 });

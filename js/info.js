@@ -118,25 +118,7 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits`,
 });
 
 
-const swiper = new Swiper(".swiper",{
-  spaceBetween : 20,
-  slidesPerView: 'auto',
-  direction: 'horizontal',
-  loop: true,
-  autoplay:
-  {
-    delay:2500,
-    disableOnInteraction:false,
-  },
-  speed : 1000,
 
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-
-});
 
 
 fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar`,{
@@ -192,6 +174,30 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar`,{
         });
     }  
 );
+
+
+const swiper = new Swiper(".swiper",{
+  spaceBetween : 40,
+  slidesPerView: 5,
+  slidesPerGroup: 5,
+  direction: 'horizontal',
+  loop: true,
+  autoplay:
+  {
+    delay:3500,
+    disableOnInteraction:false,
+  },
+  speed : 1000,
+
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+
+});
+
+
 
 
 
